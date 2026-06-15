@@ -1,46 +1,35 @@
-// Write a program to Binary search. 
+// Write a program to Bubble sort. 
 
 #include <stdio.h>
 
 int main() {
-    int arr[100], n, i, key;
-    int low, high, mid;
-    int found = 0;
+    int arr[100], n, i, j, temp;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    printf("Enter %d sorted elements:\n", n);
+    printf("Enter %d elements:\n", n);
 
     for(i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    printf("Enter element to search: ");
-    scanf("%d", &key);
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - i - 1; j++) {
 
-    low = 0;
-    high = n - 1;
+            if(arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
 
-    while(low <= high) {
-
-        mid = (low + high) / 2;
-
-        if(arr[mid] == key) {
-            found = 1;
-            printf("Element found at position %d", mid + 1);
-            break;
-        }
-        else if(arr[mid] < key) {
-            low = mid + 1;
-        }
-        else {
-            high = mid - 1;
         }
     }
 
-    if(found == 0) {
-        printf("Element not found.");
+    printf("Sorted Array:\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
     }
 
     return 0;
