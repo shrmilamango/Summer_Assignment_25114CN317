@@ -1,4 +1,5 @@
 // Write a program to Remove duplicate characters.
+//
 
 #include <stdio.h>
 
